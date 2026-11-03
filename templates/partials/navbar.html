@@ -1,0 +1,24 @@
+<nav>
+    <div class="navbar-container">
+        <div class="left-section">
+            <ul>
+                <li>
+                    <a href="{% url 'display_courses' %}">Course Portal</a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}">About</a>
+                </li>
+                <li>
+                    <a href="{% url 'contact' %}">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right-section">
+            <form class="search-form" method="GET">
+                <input type="text" class="search-box" name="search" placeholder="Enter the course">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>

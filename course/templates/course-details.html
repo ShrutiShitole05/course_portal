@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {% if course %}
+        {{ course.meta.title }}
+    {% else %}
+        Course Not Found
+    {% endif %}
+{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/course-details.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+
+    {% if course %}
+
+        <section class="details-container">
+
+            <div class="hero-section">
+                <div class="hero-content">
+                    <p class="course-badge">Course Details</p>
+
+                    <h1>{{ course.meta.title }}</h1>
+
+                    <p class="course-description">
+                        Build strong knowledge in {{ course.meta.title }} through structured modules,
+                        guided learning, and practical examples.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#" class="primary-btn">Enroll Now</a>
+                        <a href="{% url 'display_courses' %}" class="secondary-btn">Back to Courses</a>
+                    </div>
+                </div>
+
+                <div class="price-card">
+                    <p>Course Fee</p>
+                    <h2>₹{{ course.meta.fee }}</h2>
+                    <span>One-time payment</span>
+                </div>
+            </div>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <p>Difficulty</p>
+                    <h3>{{ course.meta.level }}</h3>
+                </div>
+
+                <div class="info-card">
+                    <p>Duration</p>
+                    <h3>{{ course.meta.duration }}</h3>
+                </div>
+
+                <div class="info-card">
+                    <p>Total Modules</p>
+                    <h3>{{ course.modules|length }}</h3>
+                </div>
+
+            </div>
+
+            <div class="details-layout">
+
+                <div class="modules-card">
+                    <h2>What You Will Learn</h2>
+
+                    <div class="module-list">
+                        {% for module in course.modules %}
+                            <div class="module-item">
+                                <span class="module-number">{{ forloop.counter }}</span>
+                                <p>{{ module }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="instructor-card">
+                    <div class="instructor-avatar">
+                        {{ course.instructor.name|first }}
+                    </div>
+
+                    <h2>{{ course.instructor.name }}</h2>
+                    <p class="role">Course Instructor</p>
+
+                    <div class="instructor-info">
+                        <p>Experience</p>
+                        <h3>{{ course.instructor.experience }} Years</h3>
+                    </div>
+
+                    <div class="instructor-info">
+                        <p>Specialization</p>
+                        <h3>{{ course.meta.title }}</h3>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    {% else %}
+
+        <div class="not-found-box">
+            <h1>404 | Course Not Found</h1>
+            <p>The course you are trying to access is not available.</p>
+            <a href="{% url 'display_courses' %}" class="primary-btn">Back to Courses</a>
+        </div>
+
+    {% endif %}
+
+{% endblock content %}

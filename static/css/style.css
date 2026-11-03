@@ -1,0 +1,93 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f6f9;
+}
+
+main{
+    flex:1;
+    padding: 20px 80px;
+}
+
+/* NavBar Stylings Start here */
+.navbar-container{
+    background-color: dodgerblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 35px;
+}
+
+.left-section ul{
+    display: flex;
+}
+
+.left-section ul li{
+    list-style: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.left-section ul li:hover{
+    background-color: #4da6ff;
+}
+
+.left-section ul li:hover a{
+    color: #00264d;
+}
+
+.left-section ul li a{
+    display: block;
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.right-section{
+    padding: 10px 20px;
+}
+
+.search-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.search-box{
+    height: 30px;
+    width: 400px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    font-size: 25px;
+}
+
+.search-button{
+    height: 40px;
+    width: 80px;
+}
+
+.footer-container{
+    height: 60px;
+    background-color: dodgerblue;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    font-size: 17px;
+    color: white;
+}
